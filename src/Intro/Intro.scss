@@ -1,0 +1,212 @@
+@use "../mixins";
+
+@mixin animate-icon($i) {
+    animation-delay: #{600 + ($i * 200)}ms;
+    animation-duration: 800ms;
+    transform: scale(0);
+    animation-name: icons-out;
+    transform-origin: center;
+    animation-direction: if($i % 2 == 0, normal, reverse);
+}
+.intro {
+    overflow: hidden;
+    position: absolute;
+    width: 230vw;
+    top: 0;
+    bottom: 0;
+    //left: -100vw;
+    left: 0;
+    animation-duration: 2.8s;
+    animation-name: main-out;
+    animation-timing-function: ease-out;
+    @include mixins.responsive(
+        (font-size: 2.5em),
+        (font-size: 1.5em)
+    );
+    > .shadow {
+        box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.05);
+    }
+    > .line1 {
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        right: 1vh;
+        top: 0;
+        bottom: 34%;
+        background-color: #a3d5ff;
+        border-top-right-radius: 100vh;
+        border-bottom-right-radius: 100vh;
+    }
+    > .line2 {
+        z-index: 3;
+        position: absolute;
+        left: 0;
+        right: 42vw;
+        top: 30%;
+        bottom: 30%;
+        background-color: #83c9f4;
+        border-top-right-radius: 100vh;
+        border-bottom-right-radius: 100vh;
+    }
+    > .line3 {
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        right: 20vw;
+        top: 60%;
+        bottom: 0;
+        background-color: #d9f0ff;
+        border-top-right-radius: 100vh;
+        border-bottom-right-radius: 100vh;
+    }
+    > .content {
+        z-index: 4;
+        position: absolute;
+        left: 35vw;
+        right: -35vw;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include mixins.responsive(
+            (flex-direction: row),
+            (flex-direction: column)
+        );
+        > * {
+            white-space: nowrap;
+        }
+        > .photo {
+            margin: 0.5em;
+            height: 30vmin;
+            width: 30vmin;
+            background-color: red;
+            border-radius: 25%;
+            border: 1vmin solid white;
+            position: relative;
+            @for $i from 0 through 5 {
+              > .icon-#{$i} {
+                height: 10vmin;
+                width: 10vmin;
+                position: absolute;
+                @include animate-icon($i);
+              }
+            }
+            > .icon-0 {
+              @include mixins.responsive(
+                (
+                  left: 1vmin,
+                  top: -13vmin
+                ),
+                (
+                  right: -13vmin,
+                  top: 1vmin
+                )
+              );
+            }
+            > .icon-1 {
+              @include mixins.responsive(
+                (
+                  right: 1vmin,
+                  top: -13vmin
+                ),
+                (
+                  right: -13vmin,
+                  bottom: 1vmin
+                )
+              );
+            }
+            > .icon-2 {
+              @include mixins.responsive(
+                (
+                  right: -13vmin,
+                  top: 1vmin
+                ),
+                (
+                  right: 1vmin,
+                  bottom: -13vmin
+                )
+              );
+            }
+            > .icon-3 {
+              @include mixins.responsive(
+                (
+                  right: -13vmin,
+                  bottom: 1vmin
+                ),
+                (
+                  left: 1vmin,
+                  bottom: -13vmin
+                )
+              );
+            }
+            > .icon-4 {
+              @include mixins.responsive(
+                (
+                  right: 1vmin,
+                  bottom: -13vmin
+                ),
+                (
+                  left: -13vmin,
+                  bottom: 1vmin
+                )
+              );
+            }
+            > .icon-5 {
+              @include mixins.responsive(
+                (
+                  left: 1vmin,
+                  bottom: -13vmin
+                ),
+                (
+                  left: -13vmin,
+                  top: 1vmin
+                )
+              );
+            }
+            > .react-icon {
+                background-color: #1c3a53;
+                padding: 1vmin;
+                border-radius: 50%;
+            }
+            > .nodejs-icon {
+                background-color: #d9f2df;
+                padding: 1vmin;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+@keyframes icons-out {
+  0% {
+    animation-timing-function: cubic-bezier(.14,.63,.3,1.03);
+    transform: rotate(-30deg) scale(0);
+  }
+  50% {
+    animation-timing-function: cubic-bezier(.93,.08,1,.5);
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(30deg) scale(0);
+  }
+}
+
+@keyframes main-out {
+  0% {
+    left: 0vw;
+  }
+
+  30% {
+    animation-timing-function: linear;
+    left: -98vw;
+  }
+  70% {
+    animation-timing-function: ease-in;
+    left: -102vw;
+  }
+
+  100% {
+    left: -250vw;
+  }
+}

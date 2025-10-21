@@ -1,0 +1,31 @@
+.github-stars {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 200ms;
+    > .github-icon {
+        height: 100%;
+        color: var(--color-github);
+        transition: transform 200ms;
+    }
+    > .star-icon {
+        height: 100%;
+        color: #eab308;
+    }
+    &:hover {
+        opacity: 0.8;
+        > .github-icon {
+            transform: rotate(25deg);
+        }
+    }
+    &:active {
+        opacity: 0.65;
+        > .github-icon {
+            transform: rotate(50deg);
+        }
+    }
+}

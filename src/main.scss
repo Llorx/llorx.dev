@@ -1,0 +1,84 @@
+.main {
+  font-family: "Varela Round", sans-serif;
+  font-optical-sizing: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 400ms;
+  font-size: 18px;
+  cursor: default;
+  user-select: none;
+  &.show {
+    opacity: 1;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  &.dark {
+    --background-color-portfolio: #0a0a0a;
+    --color-text-portfolio: white;
+    // libraries section
+    --color-libraries-icon-bg: #2563eb;
+    --color-libraries-icon: white;
+    --color-libraries-title: #60a5fa;
+    // tools section
+    --color-tools-icon-bg: #16a34a;
+    --color-tools-icon: white;
+    --color-tools-title: #4ade80;
+    // games section
+    --color-games-icon-bg: #9333ea;
+    --color-games-icon: white;
+    --color-games-title: #c084fc;
+    // extra section
+    --color-extra-icon-bg: #ea580c;
+    --color-extra-icon: white;
+    --color-extra-title: #fb923c;
+
+    --color-section-subtitle: #d8d8d8;
+    --color-header-subtitle: var(--color-section-subtitle);
+    --color-card-description: var(--color-section-subtitle);
+    --color-github: white;
+
+    --color-card-background: #1a1a1a;
+    --color-card-border: #3a3a3a;
+    --color-card-shadow: #0000000d;
+    --color-card-link-background: #252525;
+  }
+  &.light {
+    --background-color-portfolio: #0a0a0a;
+    --color-text-portfolio: white;
+    // libraries section
+    --color-libraries-icon-bg: #16a34a;
+    --color-libraries-icon: white;
+    --color-libraries-title: #4ade80;
+    // tools section
+    --color-tools-icon-bg: #2563eb;
+    --color-tools-icon: white;
+    --color-tools-title: #60a5fa;
+    // games section
+    --color-games-icon-bg: #9333ea;
+    --color-games-icon: white;
+    --color-games-title: #c084fc;
+    // extra section
+    --color-extra-icon-bg: #ea580c;
+    --color-extra-icon: white;
+    --color-extra-title: #fb923c;
+
+    --color-section-subtitle: #d8d8d8;
+    --color-header-subtitle: var(--color-section-subtitle);
+    --color-card-description: var(--color-section-subtitle);
+    --color-github: #24292f;
+
+    --color-card-background: #1a1a1a;
+    --color-card-border: #3a3a3a;
+    --color-card-shadow: #0000000d;
+    --color-card-link-background: #252525;
+  }
+}
+.rotate-90 {
+  transform: rotate(90deg);
+}

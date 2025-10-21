@@ -1,0 +1,17 @@
+{
+  "name": "llorx.dev",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "nesquick": "^0.0.27",
+    "sass-embedded": "^1.92.1",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.5"
+  }
+}
