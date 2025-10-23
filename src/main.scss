@@ -19,7 +19,7 @@
     box-sizing: border-box;
   }
   &.dark {
-    --background-color-portfolio: #0a0a0a;
+    --background-color-portfolio: #111827;
     --color-text-portfolio: white;
     // libraries section
     --color-libraries-icon-bg: #2563eb;
@@ -43,10 +43,23 @@
     --color-card-description: var(--color-section-subtitle);
     --color-github: white;
 
-    --color-card-background: #1a1a1a;
-    --color-card-border: #3a3a3a;
+    --color-card-background: #1f2937;
+    --color-card-border: #374151;
     --color-card-shadow: #0000000d;
-    --color-card-link-background: #252525;
+    --color-card-link-background: #293546;
+
+    --color-tag-background-nodejs: #193e32;
+    --color-tag-nodejs: #86efac;
+    --color-tag-background-zero-deps: #3b225f;
+    --color-tag-zero-deps: #d8b4fe;
+    --color-tag-background-typescript: #1e3160;
+    --color-tag-typescript: #93c5fd;
+    --color-tag-background-cpp: #282b5c;
+    --color-tag-cpp: #a5b4fc;
+    --color-tag-background-html5: #4d2b24;
+    --color-tag-html5: #fdba74;
+    --color-tag-background-rust: #4f232a;
+    --color-tag-rust: #fca5a5;
   }
   &.light {
     --background-color-portfolio: #0a0a0a;

@@ -93,28 +93,28 @@
             > .cards {
                 display: grid;
                 gap: 2em;
-                &.columns-4 {
+                &.columns-1 {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+                &.columns-2-1 {
                     @include mixins.responsive(
-                        (grid-template-columns: repeat(4, 1fr)),
+                        (grid-template-columns: repeat(2, 1fr)),
                         (grid-template-columns: repeat(1, 1fr)),
                         (grid-template-columns: repeat(2, 1fr))
                     );
                 }
-                &.columns-3 {
+                &.columns-3-1 {
+                    @include mixins.responsive(
+                        (grid-template-columns: repeat(3, 1fr)),
+                        (grid-template-columns: repeat(1, 1fr))
+                    );
+                }
+                &.columns-3-2-1 {
                     @include mixins.responsive(
                         (grid-template-columns: repeat(3, 1fr)),
                         (grid-template-columns: repeat(1, 1fr)),
                         (grid-template-columns: repeat(2, 1fr))
                     );
-                }
-                &.columns-2 {
-                    @include mixins.responsive(
-                        (grid-template-columns: repeat(2, 1fr)),
-                        (grid-template-columns: repeat(1, 1fr))
-                    );
-                }
-                &.columns-1 {
-                    grid-template-columns: repeat(2, 1fr);
                 }
             }
         }

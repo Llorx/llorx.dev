@@ -4,10 +4,19 @@ import "./Card.scss";
 import { GHStars } from "../GitHub/GHStars";
 import { LinkIcon } from "../../icons/LinkIcon";
 
+export const enum CardTags {
+    NodeJS,
+    ZeroDependencies,
+    TypeScript,
+    CPP,
+    HTML5,
+    Rust
+}
 export type CardProps = {
     icon:JSX.Element;
     title:string;
     description:string|string[];
+    tags?:CardTags[];
     repo?:string;
     links?:{
         label:string;
@@ -34,6 +43,33 @@ export function Card(props:Props<CardProps>) {
         </div>
         <div class="description">
             {getDescription}
+        </div>
+        <div class="tags">
+            {props.tags?.().map(tag => {
+                switch (tag) {
+                    case CardTags.NodeJS: {
+                        return <div class="tag nodejs">Node.JS</div>;
+                    }
+                    case CardTags.ZeroDependencies: {
+                        return <div class="tag zero-deps">Zero dependencies</div>;
+                    }
+                    case CardTags.TypeScript: {
+                        return <div class="tag typescript">TypeScript</div>;
+                    }
+                    case CardTags.CPP: {
+                        return <div class="tag cpp">C++</div>;
+                    }
+                    case CardTags.HTML5: {
+                        return <div class="tag html5">HTML5</div>;
+                    }
+                    case CardTags.Rust: {
+                        return <div class="tag rust">Rust</div>;
+                    }
+                    default: {
+                        throw new Error(`Card ${tag satisfies never} not found`);
+                    }
+                }
+            })}
         </div>
         <div class="links">
             {props.links?.().map((link, i) => <div class="link">

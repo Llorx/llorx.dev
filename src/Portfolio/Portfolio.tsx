@@ -1,7 +1,7 @@
 import "./Portfolio.scss";
 import { BookIcon } from "../icons/BookIcon.tsx";
 import { CodeIcon } from "../icons/CodeIcon.tsx";
-import { Card, type CardProps } from "./Card/Card.tsx";
+import { Card, CardTags, type CardProps } from "./Card/Card.tsx";
 import { CubesIcon } from "../icons/CubesIcon.tsx";
 import { ListCheckIcon } from "../icons/ListCheckIcon.tsx";
 import type { JSX, Props } from "nesquick/jsx-runtime";
@@ -24,6 +24,8 @@ import { PlayCircle } from "../icons/PlayCircle.tsx";
 import { ArrowsLineIcon } from "../icons/ArrowsLineIcon.tsx";
 import { MinimizeIcon } from "../icons/MinimizeIcon.tsx";
 import { KeyboardIcon } from "../icons/KeyboardIcon.tsx";
+import { TwoArrowsIcon } from "../icons/TwoArrowsIcon.tsx";
+import { DatabaseIcon } from "../icons/DatabaseIcon.tsx";
 
 export function Portfolio() {
     function getDeveloperYears() {
@@ -57,47 +59,68 @@ export function Portfolio() {
             <Section
                 class="libraries"
                 title="Libraries"
-                subtitle="Carefully crafted libraries. Very light, full NodeJS compliant and with zero dependencies."
+                subtitle="Carefully crafted libraries, with love."
                 icon={<BookIcon />}
                 projects={[{
                     icon: <CodeIcon />,
                     title: "nesquick",
                     repo: "Llorx/nesquick",
-                    description: ["React-like web rendering library, but faster than react.", "This website is entirely done in nesquick."]
+                    description: ["React-like web rendering library, but faster than react.", "This website is entirely done in nesquick.", "Zero dependencies."],
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ]
                 }, {
                     icon: <CubesIcon />,
                     title: "iso-bench",
                     repo: "Llorx/iso-bench",
-                    description: "Benchmarking tool that isolates contexts to avoid V8 optimization pollution."
+                    description: ["Benchmarking tool that isolates contexts to avoid V8 optimization pollution.", "Zero dependencies."],
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ]
                 }, {
                     icon: <ListCheckIcon />,
                     title: "arrange-act-assert",
                     repo: "Llorx/arrange-act-assert",
-                    description: "Testing framework where tests follow the Arrange/Act/Assert pattern by design.",
+                    description: ["Testing framework where tests follow the Arrange/Act/Assert pattern by design.", "Zero dependencies."],
                     links: [{
                         label: "How I Created My Own Testing Framework",
                         link: "https://medium.com/@Llorx/how-i-created-my-own-testing-framework-13d998ef5c73"
                     }, {
                         label: "The Golden Rule",
                         link: "https://github.com/goldbergyoni/javascript-testing-best-practices?tab=readme-ov-file#section-0%EF%B8%8F%E2%83%A3-the-golden-rule"
-                    }]
+                    }],
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ]
                 }, {
                     icon: <FileCheckIcon />,
                     title: "persistency",
                     repo: "Llorx/persistency",
-                    description: "Key-value library that reduces data corruption chances to virtually zero when saving/updating data to disk.",
+                    description: ["Key-value library that reduces data corruption chances to virtually zero when saving/updating data to disk.", "Zero dependencies."],
                     links: [{
                         label: "How I created this Crash-Safe Persistence System",
                         link: "https://medium.com/@Llorx/this-one-flaw-could-destroy-your-data-an-analysis-on-resilient-data-persistence-node-js-cd33d8835346"
-                    }]
+                    }],
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ]
                 }, {
                     icon: <MinimizeIcon />,
                     title: "bitpack",
-                    description: ["Library to serialize data to the minimum representable bit possible, reducing serialization size and improving performance.", "Faster than protobuf.js and with smaller payload results."]
+                    description: ["Library to serialize data to the minimum representable bit possible following a schema, reducing serialization size and improving performance.", "Faster than protobuf.js and with smaller payload results.", "Zero dependencies."],
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ]
+                }, {
+                    icon: <TwoArrowsIcon />,
+                    title: "pacopack",
+                    repo: "Llorx/pacopack",
+                    description: ["Library to serialize schemaless data but faster than JSON native methods.", "Zero dependencies."],
+                    links: [{
+                        label: "Performance details",
+                        link: "https://github.com/Llorx/pacopack/blob/main/peformance.md"
+                    }],
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ]
                 }, {
                     icon: <KeyboardIcon />,
                     title: "streamdeck",
-                    description: "Library to help create Elgato's Stream Deck interfaces and connect physical buttons to scripts."
+                    description: "Library to help create Elgato's Stream Deck interfaces and connect physical buttons to scripts.",
+                    tags: [ CardTags.NodeJS, CardTags.TypeScript ]
+                }, {
+                    icon: <DatabaseIcon />,
+                    title: "realtime-lmdb",
+                    description: "Wrapper over LMDB to create a blazing fast realtime key-store database.",
+                    tags: [ CardTags.NodeJS, CardTags.TypeScript, CardTags.CPP ]
                 }]}
             />
             <Section
@@ -108,27 +131,33 @@ export function Portfolio() {
                 projects={[{
                     icon: <MapIcon />,
                     title: "gps-tracker",
-                    description: "On-field camera operator tracker with labelling and time controls, connected to the production software to show on-screen information in realtime."
+                    description: "On-field camera operator tracker over a map, with labelling, time and track controls. Connected to the production software to show on-screen information in realtime.",
+                    tags: [ CardTags.NodeJS, CardTags.TypeScript, CardTags.HTML5 ]
                 }, {
                     icon: <PhoneIcon />,
                     title: "voip-central",
-                    description: "VoIP manager to connect field operators and the producer between them, with auto-redial, individual input-output options and multiple remote session management."
+                    description: "VoIP manager to connect field operators and the producer between them, with auto-redial, individual input-output options and multiple remote session management.",
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript, CardTags.HTML5 ]
                 }, {
                     icon: <VideoIcon />,
                     title: "liveu-manager",
-                    description: "Improved LiveU Solo and lu-central manager, all in one place. With a compact interface for quick access to all the needed features."
+                    description: "Improved LiveU Solo and lu-central manager, all in one place. With a compact interface for quick access to all the needed features.",
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript, CardTags.HTML5 ]
                 }, {
                     icon: <StopwatchIcon />,
                     title: "race-times",
-                    description: "Ranking connector for multiple race tracking systems, connected to the production software to render rankings in realtime."
+                    description: "Ranking connector for multiple race tracking systems, connected to the production software to render rankings in realtime.",
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript, CardTags.HTML5 ]
                 }, {
                     icon: <PlayCircle />,
                     title: "YouTube AF",
-                    description: "Sync YouTube videos with your friends, so everyone watches the same scene at the same time while commenting over it, like everyone watching a single screen in a room."
+                    description: "Sync YouTube videos with your friends, so everyone watches the same scene at the same time while commenting over it, like everyone watching a single screen in a room.",
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript, CardTags.HTML5 ]
                 }, {
                     icon: <ArrowsLineIcon class="rotate-90" />,
                     title: "rebond",
-                    description: "Multiple unstable WAN connections broadcaster to always have the best latency and bandwidth possible as long as a single WAN connection is alive."
+                    description: "Multiple unstable WAN connections broadcaster to always have the best latency and bandwidth possible as long as a single WAN connection is alive.",
+                    tags: [ CardTags.ZeroDependencies, CardTags.Rust, CardTags.CPP ]
                 }]}
             />
             <Section
@@ -180,15 +209,18 @@ export function Portfolio() {
 function Section(props:Props<{class:string; title:string; subtitle:string; icon:JSX.Element; projects:CardProps[];}>) {
     function getColumns() {
         const length = props.projects().length;
-        if (length <= 4) {
-            return length;
-        } else if (Math.ceil(length / 3) === Math.ceil(length / 4)) {
-            // Fill the maximum width as possible with the same rows
-            return 3;
-        } else if (Math.ceil(length / 2) === Math.ceil(length / 4)) {
-            return 2;
+        const multipleOfTwo = length % 2 === 0;
+        const multipleOfThree = length % 3 === 0;
+        if (multipleOfTwo) {
+            if (multipleOfThree) {
+                return "3-2-1";
+            } else {
+                return "2-1";
+            }
+        } else if (length === 1) {
+            return "1";
         } else {
-            return 4;
+            return "3-1";
         }
     }
     return <div class={`section ${props.class()}`}>
