@@ -1,0 +1,49 @@
+@use "../../mixins";
+
+.hobbies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--background-color-hobbies);
+    > .list {
+        display: grid;
+        gap: 2em;
+        max-width: 100em;
+        width: 100vw;
+        padding: 0 1em;
+        margin-bottom: 4em;
+        @include mixins.responsive(
+            (grid-template-columns: repeat(2, 1fr)),
+            (grid-template-columns: repeat(1, 1fr)),
+            (grid-template-columns: repeat(2, 1fr))
+        );
+    }
+    .orange-icon {
+        color: var(--color-hobby-icon-orange);
+    }
+    .purple-icon {
+        color: var(--color-hobby-icon-purple);
+    }
+    .red-icon {
+        color: var(--color-hobby-icon-red);
+    }
+    .yellow-icon {
+        color: var(--color-hobby-icon-yellow);
+    }
+    .blue-icon {
+        color: var(--color-hobby-icon-blue);
+    }
+    .redish-icon {
+        color: var(--color-hobby-icon-redish);
+    }
+    .green-icon {
+        color: var(--color-hobby-icon-green);
+    }
+    .pink-icon {
+        color: var(--color-hobby-icon-pink);
+    }
+    .greenish-icon {
+        color: var(--color-hobby-icon-greenish);
+    }
+}

@@ -1,0 +1,106 @@
+.hobby {
+    background-color: var(--color-hobby-background);
+    border-radius: 1em;
+    border: 1px solid var(--color-hobby-border);
+    box-shadow: 0 1px 3px 0px var(--color-hobby-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    > .media {
+        width: 100%;
+        overflow: hidden;
+        aspect-ratio: 1.5 / 1;
+        background-color: var(--color-hobby-media-background);
+        text-align: center;
+        position: relative;
+        > .control {
+            position: absolute;
+            top: 25%;
+            bottom: 25%;
+            width: 25%;
+            transition: opacity 200ms, background-color 200ms;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            opacity: 0.5;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.15);
+                opacity: 1;
+            }
+            &.disabled {
+                cursor: default;
+                opacity: 0;
+            }
+        }
+        > .left {
+            left: 0;
+            border-bottom-right-radius: 1em;
+            border-top-right-radius: 1em;
+            padding: 0 15% 0 1%;
+        }
+        > .right {
+            right: 0;
+            border-bottom-left-radius: 1em;
+            border-top-left-radius: 1em;
+            padding: 0 1% 0 15%;
+        }
+        > .elements {
+            height: 100%;
+            width: 100%;
+            white-space: nowrap;
+            position: relative;
+            transition: left 200ms;
+            > .element {
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+                > * {
+                    max-width: 100%;
+                    height: 100%;
+                }
+            }
+            > .tbd {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 3em;
+            }
+        }
+    }
+    > .content {
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        > .title {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5em;
+            font-size: 1.3em;
+            font-weight: 700;
+            align-items: center;
+            > .icon {
+                width: 1em;
+                height: 1em;
+            }
+        }
+        > .description {
+
+        }
+    }
+    .link {
+        color: inherit;
+        text-decoration: underline;
+        white-space: nowrap;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.3em;
+        > .open-icon {
+        height: 0.9em;
+        width: 0.9em;
+        }
+    }
+}

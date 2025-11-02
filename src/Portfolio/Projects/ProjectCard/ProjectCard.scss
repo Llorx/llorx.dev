@@ -1,0 +1,152 @@
+.project {
+    padding: 2em 2em 0;
+    background-color: var(--color-project-background);
+    border-radius: 1em;
+    border: 1px solid var(--color-project-border);
+    box-shadow: 0 1px 3px 0px var(--color-project-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    > .header {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0.4em;
+        height: 2em;
+        gap: 0.5em;
+        > .icon-container {
+            flex: 1;
+            > .icon {
+                padding: 0.4em;
+                border-radius: 0.5em;
+                height: 100%;
+                display: inline-block;
+                background-color: var(--color-section-icon-bg);
+                color: var(--color-section-icon);
+                > * {
+                    height: 100%;
+                }
+            }
+        }
+        > .stars {
+            flex: 0;
+            height: 100%;
+            padding: 0.5em;
+            border-radius: 0.5em;
+            border: 1px solid var(--color-project-border);
+        }
+    }
+    > .title {
+        font-weight: 700;
+        font-size: 1.3em;
+        margin-bottom: 0.4em;
+    }
+    > .description {
+        color: var(--color-project-description);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    > .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3em;
+        flex: 1;
+        align-items: flex-end;
+        margin-top: 1em;
+        &:empty {
+            margin-top: 0;
+        }
+        > .tag {
+            border-radius: 1em;
+            padding: 0.2em 0.4em;
+            font-size: 0.75em;
+            display: inline-block;
+            &.nodejs {
+                background-color: var(--color-tag-background-nodejs);
+                color: var(--color-tag-nodejs);
+            }
+            &.zero-deps {
+                background-color: var(--color-tag-background-zero-deps);
+                color: var(--color-tag-zero-deps);
+            }
+            &.typescript {
+                background-color: var(--color-tag-background-typescript);
+                color: var(--color-tag-typescript);
+            }
+            &.cpp {
+                background-color: var(--color-tag-background-cpp);
+                color: var(--color-tag-cpp);
+            }
+            &.html5 {
+                background-color: var(--color-tag-background-html5);
+                color: var(--color-tag-html5);
+            }
+            &.rust {
+                background-color: var(--color-tag-background-rust);
+                color: var(--color-tag-rust);
+            }
+            &.javascript {
+                background-color: var(--color-tag-background-javascript);
+                color: var(--color-tag-javascript);
+            }
+            &.flash {
+                background-color: var(--color-tag-background-flash);
+                color: var(--color-tag-flash);
+            }
+            &.ruby {
+                background-color: var(--color-tag-background-ruby);
+                color: var(--color-tag-ruby);
+            }
+            &.unity {
+                background-color: var(--color-tag-background-unity);
+                color: var(--color-tag-unity);
+            }
+            &.unreal-engine {
+                background-color: var(--color-tag-background-unreal-engine);
+                color: var(--color-tag-unreal-engine);
+            }
+        }
+    }
+    > .links {
+        margin: 1em -2em 0;
+        &:empty {
+            margin-top: 2em;
+        }
+        display: flex;
+        flex-direction: column;
+        > .link {
+            border-top: 1px solid var(--color-project-border);
+            background-color: var(--color-project-link-background);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+            gap: 0.2em;
+            padding: 0.5em 1em;
+            transition: opacity 200ms;
+            > .anchor {
+                color: inherit;
+                text-decoration: none;
+                flex: 1;
+                > .position {
+                    opacity: 0.5;
+                }
+            }
+            > .out-icon {
+                flex: 0 0 1em;
+                height: 100%;
+                opacity: 0.5;
+                transition: transform 200ms;
+            }
+            &:hover {
+                opacity: 0.75;
+                > .out-icon {
+                    transform: translateX(0.15em) rotate(10deg);
+                }
+            }
+            &:active {
+                opacity: 0.9;
+            }
+        }
+    }
+}

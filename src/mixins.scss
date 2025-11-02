@@ -4,15 +4,15 @@
             #{$prop}: $value;
         }
     }
-    @media screen and (width > 700px) and (width <= 1300px) {
-        @each $prop, $value in $tablet {
+    @media screen and (width <= 700px) {
+        @each $prop, $value in $mobile {
             #{$prop}: $value;
         }
     }
     @if ($tablet != $mobile) {
-        @media screen and (width <= 700px) {
-            @each $prop, $value in $mobile {
-            #{$prop}: $value;
+        @media screen and (width > 700px) and (width <= 1300px) {
+            @each $prop, $value in $tablet {
+                #{$prop}: $value;
             }
         }
     }

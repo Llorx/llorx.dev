@@ -1,0 +1,77 @@
+@use "../../../mixins";
+
+.section {
+    &.libraries {
+        --color-section-icon-bg: var(--color-libraries-icon-bg);
+        --color-section-icon: var(--color-libraries-icon);
+        --color-section-title: var(--color-libraries-title);
+    }
+    &.tools {
+        --color-section-icon-bg: var(--color-tools-icon-bg);
+        --color-section-icon: var(--color-tools-icon);
+        --color-section-title: var(--color-tools-title);
+    }
+    &.games {
+        --color-section-icon-bg: var(--color-games-icon-bg);
+        --color-section-icon: var(--color-games-icon);
+        --color-section-title: var(--color-games-title);
+    }
+    &.extra {
+        --color-section-icon-bg: var(--color-extra-icon-bg);
+        --color-section-icon: var(--color-extra-icon);
+        --color-section-title: var(--color-extra-title);
+    }
+    > .title {
+        display: flex;
+        align-items: center;
+        gap: 0.8em;
+        margin-bottom: 1em;
+        > .icon {
+            height: 2.4em;
+            width: 2.4em;
+            padding: 0.4em;
+            background-color: var(--color-section-icon-bg);
+            color: var(--color-section-icon);
+            border-radius: 0.5em;
+        }
+        > .text {
+            flex: 1;
+            > .title {
+                color: var(--color-section-title);
+                font-size: 1.2em;
+                font-weight: 600;
+            }
+            > .subtitle {
+                color: var(--color-section-subtitle);
+                font-size: 0.8em;
+            }
+        }
+    }
+    > .cards {
+        display: grid;
+        gap: 2em;
+        &.columns-1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        &.columns-2-1 {
+            @include mixins.responsive(
+                (grid-template-columns: repeat(2, 1fr)),
+                (grid-template-columns: repeat(1, 1fr)),
+                (grid-template-columns: repeat(2, 1fr))
+            );
+        }
+        &.columns-3-1 {
+            @include mixins.responsive(
+                (grid-template-columns: repeat(3, 1fr)),
+                (grid-template-columns: repeat(1, 1fr))
+            );
+        }
+        &.columns-3-2-1 {
+            @include mixins.responsive(
+                (grid-template-columns: repeat(3, 1fr)),
+                (grid-template-columns: repeat(1, 1fr)),
+                (grid-template-columns: repeat(2, 1fr))
+            );
+        }
+    }
+}
