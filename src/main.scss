@@ -3,7 +3,9 @@
 .main {
   font-family: "Varela Round", sans-serif;
   font-optical-sizing: auto;
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;

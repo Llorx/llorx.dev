@@ -2,6 +2,7 @@ import { Nesquick, useState } from "nesquick";
 
 import "./main.scss";
 import { Portfolio } from "./Portfolio/Portfolio";
+import { Contact } from "./Portfolio/Contact";
 import { Intro } from "./Intro/Intro";
 
 function Main() {
@@ -16,6 +17,7 @@ function Main() {
         setShowIntro(true);
     });
     return <div class={`main dark ${showMain() ? "show" : ""}`}>
+        <Contact />
         <Portfolio />
         {showIntro() ? <Intro onAnimationend={() => setShowIntro(false)} /> : null}
     </div>;

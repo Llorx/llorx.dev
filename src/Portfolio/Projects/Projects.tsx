@@ -28,11 +28,11 @@ import { TwoArrowsIcon } from "../../icons/TwoArrowsIcon.tsx";
 import { DatabaseIcon } from "../../icons/DatabaseIcon.tsx";
 import { PencilIcon } from "../../icons/PencilIcon.tsx";
 import { ProjectSection } from "./ProjectSection/ProjectSection.tsx";
-import { Head } from "../Head/Head.tsx";
+import { SectionHead } from "../SectionHead/SectionHead.tsx";
 
 export function Projects() {
     return <div class="projects">
-        <Head
+        <SectionHead
             title={<><i>(Work in progress)</i><br />My projects</>}
             subtitle={<>Explore a <strong>curated selection</strong> of projects spanning libraries, tools, games, and experimental work. Each project represents a unique challenge and innovative solution.</>}
         />

@@ -1,5 +1,5 @@
 import "./Hobbies.scss";
-import { Head } from "../Head/Head";
+import { SectionHead } from "../SectionHead/SectionHead";
 import { HobbyCard } from "./HobbyCard/HobbyCard";
 import { VideoIcon } from "../../icons/VideoIcon";
 import { Image } from "../../Image/Image";
@@ -14,12 +14,13 @@ import { LinkIcon } from "../../icons/LinkIcon";
 import { GolfIcon } from "../../icons/GolfIcon";
 import { TennisIcon } from "../../icons/TennisIcon";
 import { FistIcon } from "../../icons/FistIcon";
+import { HeartIcon } from "../../icons/HeartIcon";
 
 export function Hobbies() {
     return <div class="hobbies">
-        <Head
+        <SectionHead
             title="My hobbies"
-            subtitle={<>I believe maintaining a <strong>healthy work-life balance</strong> is key to preventing burnout. Here is a list of activities I enjoy beyond the programming world, even though coding will always be my greatest passion. <i>Mens sana in corpore sano</i>.</>}
+            subtitle={<>I believe maintaining a <strong>healthy work-life balance</strong> is key to preventing burnout (<i>Mens sana in corpore sano</i>). Here is a list of activities I enjoy beyond the programming world, even though coding will always be my greatest passion<HeartIcon class="love" /></>}
         />
         <div class="list">
             <HobbyCard

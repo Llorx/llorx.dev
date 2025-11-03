@@ -1,8 +1,8 @@
 import type { Children, Props } from "nesquick";
 
-import "./Head.scss";
+import "./SectionHead.scss";
 
-export function Head(props:Props<{title:Children; subtitle:Children;}>) {
+export function SectionHead(props:Props<{title:Children; subtitle:Children;}>) {
     return <div class="head">
         <div class="title">
             {props.title()}

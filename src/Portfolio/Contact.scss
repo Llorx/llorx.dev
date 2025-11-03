@@ -1,0 +1,12 @@
+.contact {
+    width: 100%;
+    background-color: var(--background-color-hobbies);
+    padding: 0.3em 0.4em;
+    font-size: 0.8em;
+    border-bottom: 1px solid var(--color-project-border);
+    text-align: right;
+    font-style: italic;
+    .mailto {
+        color: var(--color-text-portfolio);
+    }
+}
