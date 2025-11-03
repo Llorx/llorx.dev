@@ -2,7 +2,7 @@ import { Nesquick, useState } from "nesquick";
 
 import "./main.scss";
 import { Portfolio } from "./Portfolio/Portfolio";
-import { Contact } from "./Portfolio/Contact";
+import { Contact } from "./Contact/Contact";
 import { Intro } from "./Intro/Intro";
 
 function Main() {
