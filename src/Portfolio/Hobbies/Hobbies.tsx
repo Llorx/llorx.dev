@@ -29,7 +29,7 @@ export function Hobbies() {
                 ]}
                 icon={<HammerIcon class="redish-icon" />}
                 title="Craftworks"
-                description="Woodworking, metalworking and creating things with my hands, in general."
+                description="I enjoy creating things with my hands. Woodworking and metalworking specifically, although any kind of handicraft is welcome."
             />
             <HobbyCard
                 media={[
@@ -37,7 +37,7 @@ export function Hobbies() {
                 ]}
                 icon={<TennisIcon class="greenish-icon" />}
                 title="Racket sports"
-                description="I like almost any kind of racket sport: Tennis, squash, pádel, table tennis... pádel being by weekly pick currently."
+                description="I like almost any kind of racket sport: Tennis, squash, pádel, table tennis... pádel being my current weekly pick."
             />
             <HobbyCard
                 media={[
@@ -80,7 +80,7 @@ export function Hobbies() {
                 media={[]}
                 icon={<DiceIcon class="yellow-icon" />}
                 title="Tabletop games"
-                description="I like to play a couple times a week to tabletop games with my friends at the games club. Euro games, wargames, Warhammer 40k, role-playing... anything."
+                description="I like to play a couple times a week to tabletop games with my friends at the tabletop games club. Euro games, wargames, Warhammer 40k, role-playing... anything."
             />
             <HobbyCard
                 media={[
@@ -89,7 +89,7 @@ export function Hobbies() {
                 ]}
                 icon={<GamepadIcon class="purple-icon" />}
                 title="Gaming"
-                description="And meanwhile I also play computer games. Currently I'm playing FPS games, although my all-time favourite is Kerbal Space Program."
+                description="And meanwhile, I also play computer games. Currently I'm playing FPS games, but my all-time favourite is Kerbal Space Program."
             />
             <HobbyCard
                 media={[
