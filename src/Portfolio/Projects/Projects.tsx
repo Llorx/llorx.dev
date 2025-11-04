@@ -53,7 +53,11 @@ export function Projects() {
                     title: "iso-bench",
                     repo: "Llorx/iso-bench",
                     description: "Benchmarking tool that isolates contexts to avoid V8 optimization pollution.",
-                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ]
+                    tags: [ CardTags.NodeJS, CardTags.ZeroDependencies, CardTags.TypeScript ],
+                    links: [{
+                        label: "Your Node.js Benchmarks Are (Probably) Invalid",
+                        link: "https://medium.com/@Llorx/your-node-js-benchmarks-are-probably-invalid-a4ed2f14aadf"
+                    }]
                 }, {
                     icon: <ListCheckIcon />,
                     title: "arrange-act-assert",
