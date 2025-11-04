@@ -14,7 +14,7 @@
         padding: 0 1em;
         margin-bottom: 4em;
         @include mixins.responsive(
-            (grid-template-columns: repeat(2, 1fr)),
+            (grid-template-columns: repeat(4, 1fr)),
             (grid-template-columns: repeat(1, 1fr)),
             (grid-template-columns: repeat(2, 1fr))
         );
