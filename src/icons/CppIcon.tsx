@@ -1,7 +1,5 @@
-import type { Props } from "nesquick";
-
-export function CppIcon(props:Props<{class?:string}>) {
-    return <svg class={props.class?.() ?? ""} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+export function CppIcon(props:{class?:string}) {
+    return <svg class={props.class ?? ""} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			width="306px" height="344.35px" viewBox="0 0 306 344.35" enable-background="new 0 0 306 344.35" xml:space="preserve">
 		<path fill="#00599C" d="M302.107,258.262c2.401-4.159,3.893-8.845,3.893-13.053V99.14c0-4.208-1.49-8.893-3.892-13.052L153,172.175
 			L302.107,258.262z"/>

@@ -1,212 +1,146 @@
 @use "../mixins";
 
+$logoDelay: 1500ms;
+$columns: 11;
+
+@function native-random($min, $max) {
+    @return #{"random(#{$min}, #{$max})"};
+}
+
 @mixin animate-icon($i) {
-    animation-delay: #{600 + ($i * 200)}ms;
-    animation-duration: 800ms;
-    transform: scale(0);
+    animation-delay: #{200 + ($i * 100)}ms;
+    animation-duration: 1000ms;
     animation-name: icons-out;
     transform-origin: center;
-    animation-direction: if($i % 2 == 0, normal, reverse);
+    animation-fill-mode: forwards;
 }
+
+@mixin animate-column($i) {
+    animation-duration: 400ms;
+    animation-name: column-out;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    // Not fully supported in all browsers. JS implementation
+    // animation-delay: native-random($logoDelay + 0ms, $logoDelay + 200ms);
+}
+
 .intro {
     overflow: hidden;
     position: absolute;
-    width: 230vw;
     top: 0;
     bottom: 0;
-    //left: -100vw;
     left: 0;
-    animation-duration: 2.8s;
-    animation-name: main-out;
-    animation-timing-function: ease-out;
+    right: 0;
+    display: flex;
+    justify-content: center;
     @include mixins.responsive(
         (font-size: 2.5em),
         (font-size: 1.5em)
     );
-    > .shadow {
-        box-shadow: 1vh 1vh 0 0 rgba(0, 0, 0, 0.05);
-    }
-    > .line1 {
-        z-index: 1;
-        position: absolute;
-        left: 0;
-        right: 1vh;
-        top: 0;
-        bottom: 34%;
-        background-color: #a3d5ff;
-        border-top-right-radius: 100vh;
-        border-bottom-right-radius: 100vh;
-    }
-    > .line2 {
-        z-index: 3;
-        position: absolute;
-        left: 0;
-        right: 42vw;
-        top: 30%;
-        bottom: 30%;
-        background-color: #83c9f4;
-        border-top-right-radius: 100vh;
-        border-bottom-right-radius: 100vh;
-    }
-    > .line3 {
-        z-index: 2;
-        position: absolute;
-        left: 0;
-        right: 20vw;
-        top: 60%;
-        bottom: 0;
-        background-color: #d9f0ff;
-        border-top-right-radius: 100vh;
-        border-bottom-right-radius: 100vh;
-    }
-    > .content {
+    >.title {
         z-index: 4;
         position: absolute;
-        left: 35vw;
-        right: -35vw;
         top: 0;
         bottom: 0;
+        left: 0;
+        right: 0;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        @include mixins.responsive(
-            (flex-direction: row),
-            (flex-direction: column)
-        );
-        > * {
+        animation-duration: 500ms;
+        animation-name: fold-content;
+        animation-timing-function: cubic-bezier(0.2, 0.73, 0.43, 1.03);
+        animation-fill-mode: forwards;
+        background-color: white;
+        >* {
             white-space: nowrap;
         }
-        > .photo {
-            margin: 0.5em;
-            height: 30vmin;
-            width: 30vmin;
-            background-color: red;
-            border-radius: 25%;
-            border: 1vmin solid white;
-            position: relative;
-            @for $i from 0 through 5 {
-              > .icon-#{$i} {
+        >.icons {
+            display: flex;
+            >.icon {
                 height: 10vmin;
                 width: 10vmin;
-                position: absolute;
-                @include animate-icon($i);
-              }
+                margin: 0.2em;
+                transform: scale(0);
             }
-            > .icon-0 {
-              @include mixins.responsive(
-                (
-                  left: 1vmin,
-                  top: -13vmin
-                ),
-                (
-                  right: -13vmin,
-                  top: 1vmin
-                )
-              );
+            @for $i from 0 through 5 {
+                >.icon-#{$i} {
+                    @include animate-icon($i);
+                }
             }
-            > .icon-1 {
-              @include mixins.responsive(
-                (
-                  right: 1vmin,
-                  top: -13vmin
-                ),
-                (
-                  right: -13vmin,
-                  bottom: 1vmin
-                )
-              );
-            }
-            > .icon-2 {
-              @include mixins.responsive(
-                (
-                  right: -13vmin,
-                  top: 1vmin
-                ),
-                (
-                  right: 1vmin,
-                  bottom: -13vmin
-                )
-              );
-            }
-            > .icon-3 {
-              @include mixins.responsive(
-                (
-                  right: -13vmin,
-                  bottom: 1vmin
-                ),
-                (
-                  left: 1vmin,
-                  bottom: -13vmin
-                )
-              );
-            }
-            > .icon-4 {
-              @include mixins.responsive(
-                (
-                  right: 1vmin,
-                  bottom: -13vmin
-                ),
-                (
-                  left: -13vmin,
-                  bottom: 1vmin
-                )
-              );
-            }
-            > .icon-5 {
-              @include mixins.responsive(
-                (
-                  left: 1vmin,
-                  bottom: -13vmin
-                ),
-                (
-                  left: -13vmin,
-                  top: 1vmin
-                )
-              );
-            }
-            > .react-icon {
+            >.react-icon {
                 background-color: #1c3a53;
                 padding: 1vmin;
                 border-radius: 50%;
             }
-            > .nodejs-icon {
+            >.nodejs-icon {
                 background-color: #d9f2df;
                 padding: 1vmin;
                 border-radius: 50%;
+            }
+            >.mongodb-icon {
+                background-color: #dadada;
+                padding: 0.1vmin;
+                border-radius: 10%;
+            }
+        }
+
+        @for $i from 0 through $columns {
+            &.title-#{$i} {
+                clip-path: inset(0% (100% - (($i + 1) * calc(100% / $columns))) 0% ($i * calc(100% / $columns)));
+                @include animate-column($i);
             }
         }
     }
 }
 
+@keyframes column-out {
+    0% {
+        transform: translateY(0vh);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+@keyframes fold-out {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
 @keyframes icons-out {
-  0% {
-    animation-timing-function: cubic-bezier(.14,.63,.3,1.03);
-    transform: rotate(-30deg) scale(0);
-  }
-  50% {
-    animation-timing-function: cubic-bezier(.93,.08,1,.5);
-    transform: rotate(0deg) scale(1);
-  }
-  100% {
-    transform: rotate(30deg) scale(0);
-  }
+    0% {
+        transform: rotate(-40deg) scale(0);
+    }
+    20% {
+        transform: rotate(0deg) scale(1);
+    }
+    60% {
+        transform: rotate(30deg) scale(1);
+    }
+    100% {
+        transform: rotate(-20deg) scale(1);
+    }
 }
 
 @keyframes main-out {
-  0% {
-    left: 0vw;
-  }
-
-  30% {
-    animation-timing-function: linear;
-    left: -98vw;
-  }
-  70% {
-    animation-timing-function: ease-in;
-    left: -102vw;
-  }
-
-  100% {
-    left: -250vw;
-  }
+    0% {
+        left: 0vw;
+    }
+    30% {
+        animation-timing-function: linear;
+        left: -98vw;
+    }
+    70% {
+        animation-timing-function: ease-in;
+        left: -102vw;
+    }
+    100% {
+        left: -250vw;
+    }
 }

@@ -1,4 +1,4 @@
-import { useState, type Children, type JSX, type Props } from "nesquick";
+import { useState, type Children, type JSX } from "nesquick";
 
 import "./HobbyCard.scss";
 import { ChevronLeft } from "../../../icons/ChevronLeft";
@@ -9,13 +9,13 @@ export type HobbyCardProps = {
     title:string;
     description:Children;
 };
-export function HobbyCard(props:Props<HobbyCardProps>) {
+export function HobbyCard(props:HobbyCardProps) {
     const [ currentElement, _, updateElement ] = useState(0);
     function previousElement() {
         updateElement(element => Math.max(0, element - 1));
     }
     function nextElement() {
-        updateElement(element => Math.min(Math.max(0, props.media().length - 1), element + 1));
+        updateElement(element => Math.min(Math.max(0, props.media.length - 1), element + 1));
     }
     let currentTouch:Touch|null = null;
     let currentContainer:HTMLDivElement|null = null;
@@ -54,16 +54,16 @@ export function HobbyCard(props:Props<HobbyCardProps>) {
     }
     return <div class="hobby">
         <div class="media" ref={setContainer} onTouchstart={touchStart} onTouchend={touchEnd}>
-            <div class="elements" style={{left: `${currentElement() * -100}%`}}>{props.media().length === 0 ? <div class="tbd"><div>Media</div><div>to be done</div></div> : props.media().map(media => <div class="element">{media}</div>)}</div>
+            <div class="elements" style={{left: `${currentElement() * -100}%`}}>{props.media.length === 0 ? <div class="tbd"><div>Media</div><div>to be done</div></div> : props.media.map(media => <div class="element">{media}</div>)}</div>
             <div class={`control left ${currentElement() === 0 ? "disabled" : ""}`} onClick={previousElement}><ChevronLeft /></div>
-            <div class={`control right ${currentElement() >= (props.media().length - 1) ? "disabled" : ""}`} onClick={nextElement}><ChevronLeft class="rotate-180" /></div>
+            <div class={`control right ${currentElement() >= (props.media.length - 1) ? "disabled" : ""}`} onClick={nextElement}><ChevronLeft class="rotate-180" /></div>
         </div>
         <div class="content">
             <div class="title">
-                <div class="icon">{props.icon()}</div>
-                <div>{props.title()}</div>
+                <div class="icon">{props.icon}</div>
+                <div>{props.title}</div>
             </div>
-            <div class="description">{props.description()}</div>
+            <div class="description">{props.description}</div>
         </div>
     </div>;
 }

@@ -1,11 +1,11 @@
-import type { JSX, Props } from "nesquick";
+import type { JSX } from "nesquick";
 
 import "./ProjectSection.scss";
 import { ProjectCard, type ProjectCardProps } from "../ProjectCard/ProjectCard";
 
-export function ProjectSection(props:Props<{class:string; title:string; subtitle:string; icon:JSX.Element; projects:ProjectCardProps[];}>) {
+export function ProjectSection(props:{class:string; title:string; subtitle:string; icon:JSX.Element; projects:ProjectCardProps[];}) {
     function getColumns() {
-        const length = props.projects().length;
+        const length = props.projects.length;
         const multipleOfTwo = length % 2 === 0;
         const multipleOfThree = length % 3 === 0;
         if (multipleOfTwo) {
@@ -20,22 +20,22 @@ export function ProjectSection(props:Props<{class:string; title:string; subtitle
             return "3-1";
         }
     }
-    return <div class={`section ${props.class()}`}>
+    return <div class={`section ${props.class}`}>
         <div class="title">
             <div class="icon">
-                {props.icon()}
+                {props.icon}
             </div>
             <div class="text">
                 <div class="title">
-                    {props.title()}
+                    {props.title}
                 </div>
                 <div class="subtitle">
-                    {props.subtitle()}
+                    {props.subtitle}
                 </div>
             </div>
         </div>
         <div class={`cards columns-${getColumns()}`}>
-            {props.projects().map(props => <ProjectCard {...props}/>)}
+            {props.projects.map(props => <ProjectCard {...props}/>)}
         </div>
     </div>;
 }

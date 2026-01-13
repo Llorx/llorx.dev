@@ -1,4 +1,4 @@
-import type { JSX, Props } from "nesquick";
+import type { JSX } from "nesquick";
 
 import "./ProjectCard.scss";
 import { GHStars } from "../../GitHub/GHStars";
@@ -28,9 +28,9 @@ export type ProjectCardProps = {
         link:string;
     }[];
 };
-export function ProjectCard(props:Props<ProjectCardProps>) {
+export function ProjectCard(props:ProjectCardProps) {
     function getDescription() {
-        const description = props.description();
+        const description = props.description;
         if (Array.isArray(description)) {
             return description.map(desc => <div class="text">{desc}</div>);
         }
@@ -39,18 +39,18 @@ export function ProjectCard(props:Props<ProjectCardProps>) {
     return <div class="project">
         <div class="header">
             <div class="icon-container">
-                <div class="icon">{props.icon()}</div>
+                <div class="icon">{props.icon}</div>
             </div>
-            {props.repo ? <GHStars class="stars" repo={props.repo()}/> : null}
+            {props.repo ? <GHStars class="stars" repo={props.repo}/> : null}
         </div>
         <div class="title">
-            {props.title()}
+            {props.title}
         </div>
         <div class="description">
             {getDescription}
         </div>
         <div class="tags">
-            {props.tags?.().map(tag => {
+            {props.tags?.map(tag => {
                 switch (tag) {
                     case CardTags.NodeJS: {
                         return <div class="tag nodejs">Node.JS</div>;
@@ -92,7 +92,7 @@ export function ProjectCard(props:Props<ProjectCardProps>) {
             })}
         </div>
         <div class="links">
-            {props.links?.().map((link, i) => <div class="link">
+            {props.links?.map((link, i) => <div class="link">
                 <a target="_blank" href={link.link} class="anchor"><span class="position">{i + 1}.</span> {link.label}</a>
                 <LinkIcon class="out-icon" />
             </div>)}

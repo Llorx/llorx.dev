@@ -1,15 +1,13 @@
-import type { Props } from "nesquick";
-
 import "./Video.scss";
 
-export function Video(props:Props<{src:string; poster?:string; class?:string}>) {
+export function Video(props:{src:string; poster?:string; class?:string}) {
     return <video
-            poster={props.poster?.() || ""}
+            poster={props.poster || ""}
             controls
             preload="auto"
-            class={`video ${props.class?.() ?? ""}`}
+            class={`video ${props.class ?? ""}`}
         >
-        <source src={props.src()} />
+        <source src={props.src} />
         Your browser does not support the video tag.
     </video>;
 }
