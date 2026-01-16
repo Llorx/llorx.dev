@@ -3,23 +3,24 @@ import { Nesquick, useState } from "nesquick";
 import "./main.scss";
 import { Portfolio } from "./Portfolio/Portfolio";
 import { Contact } from "./Contact/Contact";
-import { Intro } from "./Intro/Intro";
+import { LoadingScreen } from "./LoadingScreen/LoadingScreen";
 
 function Main() {
-    const [ showIntro, setShowIntro ] = useState(false);
-    const [ showMain, setShowmain ] = useState(false);
+    const [ showLoadingScreen, setShowLoadingScreen ] = useState(false);
+    const [ showMain, setShowMain ] = useState(false);
     window.addEventListener("beforeunload", () => {
-        // Smooth exit
-        setShowmain(false);
+        setShowMain(false);
     });
     document.addEventListener("DOMContentLoaded", () => {
-        setShowmain(true);
-        setShowIntro(true);
+        setShowMain(true);
+        setShowLoadingScreen(true);
     });
     return <div class={`main dark ${showMain() ? "show" : ""}`}>
         <Contact />
         <Portfolio />
-        {showIntro() ? <Intro onAnimationend={() => setShowIntro(false)} /> : null}
+        {showLoadingScreen() ? <LoadingScreen onComplete={() => {
+            setShowLoadingScreen(false);
+        }} /> : null}
     </div>;
 }
 Nesquick.render(<Main />);

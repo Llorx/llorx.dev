@@ -53,7 +53,7 @@ export function HobbyCard(props:HobbyCardProps) {
         }
     }
     return <div class="hobby">
-        <div class="media" ref={setContainer} onTouchstart={touchStart} onTouchend={touchEnd}>
+        <div class="media" nq:ref={setContainer} onTouchstart={touchStart} onTouchend={touchEnd}>
             <div class="elements" style={{left: `${currentElement() * -100}%`}}>{props.media.length === 0 ? <div class="tbd"><div>Media</div><div>to be done</div></div> : props.media.map(media => <div class="element">{media}</div>)}</div>
             <div class={`control left ${currentElement() === 0 ? "disabled" : ""}`} onClick={previousElement}><ChevronLeft /></div>
             <div class={`control right ${currentElement() >= (props.media.length - 1) ? "disabled" : ""}`} onClick={nextElement}><ChevronLeft class="rotate-180" /></div>
